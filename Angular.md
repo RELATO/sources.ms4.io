@@ -92,3 +92,28 @@ Run
 to set your account's default identity.
 Omit --global to set the identity only in this repository.
 ```
+
+> Now run your brand new Angular app
+```
+cd my-dream-app
+ng serve
+``` 
+> If everything went OK you should see
+````
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+Date: 2019-04-21T13:01:11.299Z
+Hash: 89d6309a87e2f8c3a099
+Time: 24787ms
+chunk {es2015-polyfills} es2015-polyfills.js, es2015-polyfills.js.map (es2015-polyfills) 284 kB [initial] [rendered]
+chunk {main} main.js, main.js.map (main) 9.81 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 236 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.08 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 16.3 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 3.52 MB [initial] [rendered]
+ℹ ｢wdm｣: Compiled successfully.
+```
+> Now open your browser on 
+
+http://localhost:4200/
+
