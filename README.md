@@ -10,11 +10,11 @@
 - [upcloud](https://hub.upcloud.com)
 - [ssdnodes](https://www.ssdnodes.com/manage/clientarea.php) * does not have block storage, load balancer or even hourly based prices
 
-## Make things easyer (tested in ubuntu VPS)
+## Make things easyer (tested in ubuntu)
 
-Before running the commands below you need to send your public ssh key to the chosen datacenter (like one of those listed above)
+Before running the commands below you need to send your public ssh key to the datacenter of your choid (like one of those listed above / I.E. one you created your VPS)
 
-To do that, copy the content showed using the command below
+To do that, copy the content showed after issueing the command below
 ```
 cat ~/.ssh/id_rsa.pub
 ``` 
