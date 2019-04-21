@@ -9,7 +9,8 @@ https://e.printstacktrace.blog/installing-graalvm-ee-1-0-0-rc14-with-sdkman/
 
 ## Download and install GraalVM
 
-Download graalvm-ee-1.0.0-rc16-linux-amd64.tar.gz file from oracle
+Download graalvm-ee-1.0.0-rc16-linux-amd64.tar.gz file from oracle or the community version from the [github](https://github.com/oracle/graal/releases/download/vm-1.0.0-rc15/graalvm-ce-1.0.0-rc15-linux-amd64.tar.gz)
+
 After that you are able to issue these commands:
 ```
 mv graalvm-ee-1.0.0-rc16-linux-amd64.tar.gz graalvm-ee.tar.gz
