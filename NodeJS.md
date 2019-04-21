@@ -13,7 +13,6 @@ export NVM_DIR="/root/.nvm"
 and finally issue the following command to test
 ```
 nvm list
-
 ``` 
 > You should see something like this
 
