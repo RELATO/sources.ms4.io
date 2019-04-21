@@ -72,6 +72,7 @@ apt-get install -y kubelet kubeadm kubectl
 apt-mark hold docker-ce kubectl kubeadm kubelet
 sudo swapoff -a
 ``` 
+### Master install
 > Issue the commands below in the main master (using canal alternative. See more alternatives in documentation)
 ```
 kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -98,6 +99,8 @@ kubeadm join 10.12.157.131:6443 --token f5m6i1.ruo75b91vd8s7cb5 \
     --discovery-token-ca-cert-hash sha256:ed0dfe1ec47374c819c14a8f9c11f961e4598537ef151d7d34183221b96d4255
 
 ```
+
+### Install workers
 > After that you need to apply the above command in all your workers replacing the numbers accordanly you see in your master. Copy the command as showed and past in your workers. For example:
 ```
 kubeadm join 10.12.157.131:6443 --token f5m6i1.ruo75b91vd8s7cb5 \
