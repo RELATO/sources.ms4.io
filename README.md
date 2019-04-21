@@ -39,14 +39,16 @@ And, finally, paste the ssh public key content just copied into the datacenter d
 
 
 ### Installing docker remotely via SSH 
+Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ```
-declare -a IPS=(163.172.144.44 163.172.114.31)
+declare -a IPS=(X.Y.Z.W)
 for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; reboot;" ;  done
 ``` 
 
 ### Installing docker remotely via SSH 
+Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ``` 
-declare -a IPS=(163.172.144.44 163.172.114.31)
+declare -a IPS=(X.Y.Z.W)
 for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; curl https://releases.rancher.com/install-docker/18.06.sh | sh; apt-mark hold docker-ce; " ;  done
 
 ``` 
