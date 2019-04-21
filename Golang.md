@@ -9,7 +9,12 @@ cd /usr/local
 tar xfvz ~/go1.11.9.linux-amd64.tar.gz
 ```
 
-## Add the folloing line to your ~/.profile file
+## Add the following line to your ~/.profile file
 ```
 export PATH=$PATH:/usr/local/go/bin
 ```
+
+## Test your go installation
+- Logout
+- Login again
+- Issue the command: go version
