@@ -144,4 +144,4 @@ Started @12ms
 Started @1549ms
 ```
 
-# Fantastic, isn't is ? Cheers, GraalVM !
+# Fantastic, isn't it ? Thank you, GraalVM !
