@@ -11,7 +11,7 @@ https://istio.io/docs/setup/kubernetes/install/kubernetes/
 https://istio.io/docs/tasks/traffic-management/ingress/#determining-the-ingress-ip-and-ports
 https://istio.io/docs/examples/bookinfo/
 
-## commands to run to install and verify 
+## Commands to run to install and verify 
 ```
 for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
 kubectl apply -f install/kubernetes/istio-demo.yaml
