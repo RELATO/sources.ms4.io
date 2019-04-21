@@ -38,19 +38,63 @@ cat ~/.ssh/id_rsa.pub
 And, finally, paste the ssh public key content just copied into the datacenter dashboard of your choice.
 
 
-### Installing docker remotely via SSH 
+### Update/upgrade/reboot remotely via SSH 
 Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ```
 declare -a IPS=(X.Y.Z.W)
 for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; reboot;" ;  done
 ``` 
 
-### Installing docker remotely via SSH 
+### Install docker remotely via SSH 
 Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ``` 
 declare -a IPS=(X.Y.Z.W)
 for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; curl https://releases.rancher.com/install-docker/18.06.sh | sh; apt-mark hold docker-ce; " ;  done
 
 ``` 
+
+## Install Kubernetes ( from scratch )
+Some references: 
+
+https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/?s_tact=C43401LW
+
+https://vitux.com/install-and-deploy-kubernetes-on-ubuntu/
+
+### Install prerequisites
+Issue the commands below in all masters and workers you want/have
+```
+apt-get update && apt-get -y upgrade
+curl https://releases.rancher.com/install-docker/18.06.sh | sh
+apt install -y sudo curl zip unzip 
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+apt-get install -y kubelet kubeadm kubectl
+apt-mark hold docker-ce kubectl kubeadm kubelet
+sudo swapoff -a
+``` 
+Issue the commands below in the main master (using canal alternative. See more alternatives in documentation)
+```
+kubeadm init --pod-network-cidr=10.244.0.0/16
+mkdir -p $HOME/.kube
+kubectl get nodes
+kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/canal/rbac.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/canal/canal.yaml
+```
+
+>>> to verify 
+```
+kubectl get nodes
+```
+
+>>> to allow master to receive workloads
+```
+kubectl taint nodes --all node-role.kubernetes.io/master-
+``` 
+>>> to retrieve tokens ( run in master / token expires every 24 hours )
+```
+kubeadm token list
+
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null |    openssl dgst -sha256 -hex | sed 's/^.* //'
+```
 
 
