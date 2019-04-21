@@ -26,3 +26,20 @@ Now you are able to install NodeJS (recommended version)
 ```
 nvm install node
 ``` 
+> You shoud see something like this
+```
+Downloading and installing node v11.14.0...
+Downloading https://nodejs.org/dist/v11.14.0/node-v11.14.0-linux-x64.tar.xz...
+########################################################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v11.14.0 (npm v6.7.0)
+Creating default alias: default -> node (-> v11.14.0)
+```
+> Testing your node installation 
+```
+root@development:~# node -v
+v11.14.0
+root@development:~# npm -v
+6.7.0
+```
