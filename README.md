@@ -12,7 +12,8 @@
 
 ## Make things easyer (tested in ubuntu)
 
-Before running the commands below you need to send your public ssh key to the datacenter of your choid (like one of those listed above / I.E. one you created your VPS)
+### Send your public ssh key to the datacenter control panel 
+Before running the commands remotely via ssh protocol you need to send your public ssh key to the datacenter of your choid (like one of those listed above / I.E. one you created your VPS)
 
 To do that, copy the content showed after issueing the command below
 ```
