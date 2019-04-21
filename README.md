@@ -34,10 +34,7 @@ If everything went right, you can copy the content showed using the command belo
 ```
 cat ~/.ssh/id_rsa.pub
 ``` 
-
-
-
-
+And, finally, paste the ssh public key content just copied into the datacenter dashboard of your choice.
 
 
 ### Installing docker remotely via SSH 
