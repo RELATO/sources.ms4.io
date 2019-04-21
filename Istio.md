@@ -1,4 +1,4 @@
-# Istio (recommended)
+# Istio (recommended for kubernetes clusters)
 
 ## Some references:
 https://istio.io/docs/setup/kubernetes/download/
