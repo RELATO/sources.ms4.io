@@ -65,10 +65,10 @@ https://vitux.com/install-and-deploy-kubernetes-on-ubuntu/
 ```
 apt-get update && apt-get -y upgrade
 curl https://releases.rancher.com/install-docker/18.06.sh | sh
-apt install -y sudo curl zip unzip screen 
+apt install -y -q sudo curl zip unzip screen 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-apt-get install -y kubelet kubeadm kubectl
+apt-get install -y -q kubelet kubeadm kubectl
 apt-mark hold docker-ce kubectl kubeadm kubelet
 sudo swapoff -a
 ``` 
