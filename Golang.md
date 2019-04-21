@@ -17,4 +17,12 @@ export PATH=$PATH:/usr/local/go/bin
 ## Test your go installation
 - Logout
 - Login again
-- Issue the command: go version
+- Issue the command below
+
+```
+go version
+``` 
+
+> You should see
+
+>>> go version go1.11.9 linux/amd64
