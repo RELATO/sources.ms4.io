@@ -1,5 +1,8 @@
 # Istio (recommended for kubernetes clusters)
 
+## Recent videos
+https://www.youtube.com/watch?v=KLBFR_rUreE
+
 ## Some references:
 https://istio.io/docs/setup/kubernetes/download/
 
