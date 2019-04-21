@@ -72,7 +72,7 @@ apt-get install -y kubelet kubeadm kubectl
 apt-mark hold docker-ce kubectl kubeadm kubelet
 sudo swapoff -a
 ``` 
-### Master install
+### Master installation
 > Issue the commands below in the main master (using canal alternative. See more alternatives in documentation)
 ```
 kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -100,7 +100,7 @@ kubeadm join 10.12.157.131:6443 --token f5m6i1.ruo75b91vd8s7cb5 \
 
 ```
 
-### Install workers
+###  Workers installation
 > After that you need to apply the above command in all your workers replacing the numbers accordanly you see in your master. Copy the command as showed and past in your workers. For example:
 ```
 kubeadm join 10.12.157.131:6443 --token f5m6i1.ruo75b91vd8s7cb5 \
@@ -123,4 +123,22 @@ kubeadm token list
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null |    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
 
+## Screen (tool for devops help)
+
+> Below are some most common commands for managing Linux Screen Windows:
+```
+Ctrl+a c Create a new window (with shell)
+Ctrl+a " List all window
+Ctrl+a 0 Switch to window 0 (by number )
+Ctrl+a A Rename the current window
+Ctrl+a S Split current region horizontally into two regions
+Ctrl+a | Split current region vertically into two regions
+Ctrl+a tab Switch the input focus to the next region
+Ctrl+a Ctrl+a Toggle between the current and previous region
+Ctrl+a Q Close all regions but the current one
+Ctrl+a X Close the current region
+
+Ctrl+a d You can detach from the screen session at any time by typing this
+screen -r To resume your screen session
+``` 
 
