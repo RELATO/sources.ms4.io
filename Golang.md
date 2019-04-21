@@ -28,3 +28,13 @@ go version
 ``` 
 go version go1.11.9 linux/amd64
 ``` 
+
+## Some interesting tutorials
+
+https://medium.com/@evers.rivero/https-y-golang-2db1d2739e7e
+
+https://github.com/dlsniper/gopherconuk
+
+## Some interesting projects 
+
+https://github.com/hb-go/echo-web
