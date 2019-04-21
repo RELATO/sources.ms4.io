@@ -42,7 +42,7 @@ And, finally, paste the ssh public key content just copied into the datacenter d
 Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ```
 declare -a IPS=(X.Y.Z.W)
-for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; reboot;" ;  done
+for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; apt -y -q sudo curl zip unzip screen ; reboot;" ;  done
 ``` 
 
 ### Install docker remotely via SSH 
@@ -65,7 +65,7 @@ https://vitux.com/install-and-deploy-kubernetes-on-ubuntu/
 ```
 apt-get update && apt-get -y upgrade
 curl https://releases.rancher.com/install-docker/18.06.sh | sh
-apt install -y sudo curl zip unzip 
+apt install -y sudo curl zip unzip screen 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 apt-get install -y kubelet kubeadm kubectl
