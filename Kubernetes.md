@@ -11,6 +11,9 @@ https://joshrendek.com/2018/04/kubernetes-on-bare-metal/
 > Install and manage automatically a Kubernetes cluster on VMware vSphere with Terraform and Kubespray
 https://blog.inkubate.io/install-and-manage-automatically-a-kubernetes-cluster-on-vmware-vsphere-with-terraform-and-kubespray/
 
+>  Do-It-Yourself Kubernetes in the Hetzner Cloud - 21 Jul 2018 
+https://github.com/fstab/diy-kubernetes 
+
 > Bare-metal on scaleway datacenter
 https://medium.com/@stefanprodan/running-kubernetes-on-scaleway-bare-metal-with-terraform-and-kubeadm-1cf18aae32d5
 

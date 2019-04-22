@@ -14,3 +14,8 @@ docker run --name mysqldev -e MYSQL_ROOT_PASSWORD=ChangeIt -d -p3306:3306 mysql:
 docker exec -it mysqldev bash
 mysql -uroot -p 
 ```
+
+## References
+
+> MySql (ini suggested to have better performance results)
+https://github.com/prymecode/MySQL-performance/blob/master/my-production4G.ini
