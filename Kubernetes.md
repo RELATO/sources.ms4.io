@@ -6,6 +6,16 @@ https://github.com/hobby-kube/guide
 > Other documentations
 https://joshrendek.com/2018/04/kubernetes-on-bare-metal/
 
+## Nice Tutorials
+
+> Install and manage automatically a Kubernetes cluster on VMware vSphere with Terraform and Kubespray
+https://blog.inkubate.io/install-and-manage-automatically-a-kubernetes-cluster-on-vmware-vsphere-with-terraform-and-kubespray/
+
+> Bare-metal on scaleway datacenter
+https://medium.com/@stefanprodan/running-kubernetes-on-scaleway-bare-metal-with-terraform-and-kubeadm-1cf18aae32d5
+
+> Setup a basic Kubernetes cluster with ease using RKE (Rancher)
+https://itnext.io/setup-a-basic-kubernetes-cluster-with-ease-using-rke-a5f3cc44f26f
 
 ## Install Kubernetes ( from scratch )
 Some references: 
