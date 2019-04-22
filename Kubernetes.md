@@ -76,6 +76,11 @@ kubeadm token list
 
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null |    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
+### About external storage
+https://github.com/kubernetes-incubator/external-storage/tree/master/nfs#quickstart
+
+### About load balancing
+https://rancher.com/blog/2018/2018-09-13-load-balancing-options-2dot0/
 
 ## firewall ports  
 Reference: https://stackoverflow.com/questions/39293441/needed-ports-for-kubernetes-cluster
