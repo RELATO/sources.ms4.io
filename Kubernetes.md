@@ -24,8 +24,7 @@ https://itnext.io/setup-a-basic-kubernetes-cluster-with-ease-using-rke-a5f3cc44f
 https://typhoon.psdn.io/cl/digital-ocean/
 
 ## Install Kubernetes ( from scratch )
-Some references: 
-
+> Some references: 
 https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/?s_tact=C43401LW
 
 https://vitux.com/install-and-deploy-kubernetes-on-ubuntu/
