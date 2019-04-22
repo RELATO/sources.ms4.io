@@ -74,3 +74,31 @@ backend nodes
     server node2 104.225.221.183:30000 check
     server node3 104.225.221.33:30000 check
 ``` 
+## SSH agent
+```
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa
+ssh-add -L
+```
+
+## Self-signed certificates
+
+> wget example avoiding access error
+```
+wget --no-check-certificate https://blablabla
+```
+> curl example avoiding access error
+```
+curl -O --insecure --header 'Host: www.example.com' -I https://blablabla
+
+### OR ###
+
+curl -k --header 'Host: www.example.com' -I https://blablabla
+```
+
+## Ubuntu locales 
+```
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+sudo dpkg-reconfigure locales
+```
