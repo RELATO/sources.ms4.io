@@ -85,8 +85,7 @@ root@development:~/graal-javalin# curl localhost:7000
 ## Creating a native static image from the jar file just created
 Issue the following command to create a native executable file
 ```
-native-image -jar /tmp/build/build/libs/graal-javalin-all-1.0-SNAPSHOT.jar -H:ReflectionConfigurationFiles=reflection.json -H:+JNI \
-  -H:Name=graal-javalin --static
+native-image -jar ./build/libs/graal-javalin-all-1.0-SNAPSHOT.jar -H:ReflectionConfigurationFiles=reflection.json -H:+JNI   -H:Name=graal-javalin --static
 ```
 > If everything went successfully processed you should see
 ```
