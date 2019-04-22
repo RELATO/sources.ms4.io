@@ -20,6 +20,9 @@ https://medium.com/@stefanprodan/running-kubernetes-on-scaleway-bare-metal-with-
 > Setup a basic Kubernetes cluster with ease using RKE (Rancher)
 https://itnext.io/setup-a-basic-kubernetes-cluster-with-ease-using-rke-a5f3cc44f26f
 
+> Another tool / approach
+https://typhoon.psdn.io/cl/digital-ocean/
+
 ## Install Kubernetes ( from scratch )
 Some references: 
 
