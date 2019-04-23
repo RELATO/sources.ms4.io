@@ -44,7 +44,7 @@ And, finally, paste the ssh public key content just copied into the datacenter d
 Replace the letters bellow (X.Y.Z.W) with the correct VPSs IP addresses separeted by spaces. Example: (163.172.144.44 173.172.114.31 68.31.97.53)
 ```
 declare -a IPS=(X.Y.Z.W)
-for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; apt -y -q sudo curl zip unzip screen ; reboot;" ;  done
+for IP in ${IPS[@]}; do  ssh -o StrictHostKeyChecking=no -t root@$IP "echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections; apt update; apt -y -q upgrade; apt -y -q autoremove; apt -y -q install sudo curl zip unzip screen ; reboot;" ;  done
 ``` 
 
 ### Install docker remotely via SSH 

@@ -2,7 +2,8 @@
 
 ## Test 1
 
-> I was able to get kubernetes cluster running using the approach below from an Ubuntu 16.04 box
+> I was able to get kubernetes cluster running using the approach below 
+I issue the commands from an Ubuntu 16.04 box
 ```
 https://github.com/stefanprodan/k8s-scw-baremetal
 ```
@@ -13,4 +14,6 @@ https://github.com/stefanprodan/k8s-scw-baremetal
 ```
 eval `ssh-agent -s`
 ssh-add ~/.ssh/id_rsa
-``
+``` 
+
+
