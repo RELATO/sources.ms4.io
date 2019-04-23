@@ -102,3 +102,9 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 sudo dpkg-reconfigure locales
 ```
+
+## Powerful and Useful sed command
+```
+sed -i 's/old-text/new-text/g' somefile.txt
+```
+
