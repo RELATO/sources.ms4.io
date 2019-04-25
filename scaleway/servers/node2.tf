@@ -3,7 +3,7 @@ resource "scaleway_ip" "node2_ip" {
 
 resource "scaleway_server" "node2" {
   name       = "node2"
-  public_ip  = "scaleway_ip.node2_ip.ip}"
+  public_ip  = "scaleway_ip.node2_ip.id}"
   image      = "${data.scaleway_image.ubuntu.id}"
   type       = "START1-M"
   tags = [
