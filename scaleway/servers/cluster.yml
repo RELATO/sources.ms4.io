@@ -1,0 +1,242 @@
+nodes:
+- address: 51.158.122.55
+  port: ""
+  internal_address: 10.64.120.85
+  role:
+  - controlplane
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 163.172.143.140
+  port: ""
+  internal_address: 10.64.72.39
+  role:
+  - controlplane
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.115.171
+  port: ""
+  internal_address: 10.64.68.55
+  role:
+  - controlplane
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 163.172.191.177
+  port: ""
+  internal_address: 10.64.156.39
+  role:
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.97.185
+  port: ""
+  internal_address: 10.64.154.21
+  role:
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.126.247
+  port: ""
+  internal_address: 10.64.66.53
+  role:
+  - worker
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.66.69
+  port: ""
+  internal_address: 10.64.26.19
+  role:
+  - etcd
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.100.2
+  port: ""
+  internal_address: 10.64.148.51
+  role:
+  - etcd
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+- address: 51.158.119.246
+  port: ""
+  internal_address: 10.64.30.17
+  role:
+  - etcd
+  hostname_override: ""
+  user: rke
+  docker_socket: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+  labels: {}
+services:
+  etcd:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    external_urls: []
+    ca_cert: ""
+    cert: ""
+    key: ""
+    path: ""
+    snapshot: null
+    retention: ""
+    creation: ""
+    backup_config: null
+  kube-api:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    service_cluster_ip_range: ""
+    service_node_port_range: ""
+    pod_security_policy: false
+    always_pull_images: false
+  kube-controller:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    cluster_cidr: ""
+    service_cluster_ip_range: ""
+  scheduler:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+  kubelet:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    cluster_domain: ""
+    infra_container_image: ""
+    cluster_dns_server: ""
+    fail_swap_on: false
+  kubeproxy:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+network:
+  plugin: ""
+  options: {}
+authentication:
+  strategy: ""
+  sans: []
+  webhook: null
+addons: ""
+addons_include: []
+system_images:
+  etcd: ""
+  alpine: ""
+  nginx_proxy: ""
+  cert_downloader: ""
+  kubernetes_services_sidecar: ""
+  kubedns: ""
+  dnsmasq: ""
+  kubedns_sidecar: ""
+  kubedns_autoscaler: ""
+  coredns: ""
+  coredns_autoscaler: ""
+  kubernetes: ""
+  flannel: ""
+  flannel_cni: ""
+  calico_node: ""
+  calico_cni: ""
+  calico_controllers: ""
+  calico_ctl: ""
+  canal_node: ""
+  canal_cni: ""
+  canal_flannel: ""
+  weave_node: ""
+  weave_cni: ""
+  pod_infra_container: ""
+  ingress: ""
+  ingress_backend: ""
+  metrics_server: ""
+ssh_key_path: ""
+ssh_cert_path: ""
+ssh_agent_auth: false
+authorization:
+  mode: ""
+  options: {}
+ignore_docker_version: false
+kubernetes_version: ""
+private_registries: []
+ingress:
+  provider: ""
+  options: {}
+  node_selector: {}
+  extra_args: {}
+cluster_name: ""
+cloud_provider:
+  name: ""
+prefix_path: ""
+addon_job_timeout: 0
+bastion_host:
+  address: ""
+  port: ""
+  user: ""
+  ssh_key: ""
+  ssh_key_path: ""
+  ssh_cert: ""
+  ssh_cert_path: ""
+monitoring:
+  provider: ""
+  options: {}
+restore:
+  restore: false
+  snapshot_name: ""
+dns: null
