@@ -5,7 +5,7 @@ resource "digitalocean_droplet" "dgo-host" {
   size               = "${var.dgo-size}"
   backups            = false
   private_networking = true
-  ssh_keys           = "${var.ssh_keys}"
+  ssh_keys           = "${var.dgo-ssh-keys}"
 
   count = "${var.hosts}"
 
@@ -13,7 +13,7 @@ resource "digitalocean_droplet" "dgo-host" {
     inline = [
       "until [ -f /var/lib/cloud/instance/boot-finished ]; do sleep 1; done",
       "apt-get update",
-      "apt-get install -yq ufw ${join(" ", var.apt_packages)}",
+      "apt-get install -yq ufw ${join(" ", var.dgo-apt_packages)}",
     ]
   }
 }
@@ -27,14 +27,14 @@ output "dgo-public_ips" {
 }
 
 provider "scaleway" {
-  organization = "${var.organization}"
-  token        = "${var.token}"
-  region       = "${var.region}"
+  organization = "${var.scw-organization}"
+  token        = "${var.scw-token}"
+  region       = "${var.scw-region}"
 }
 
 resource "scaleway_server" "scw-host" {
-  name                = "${format(var.hostname_format, count.index + 1)}"
-  type                = "${var.type}"
+  name                = "${format(var.scw-hostname_format, count.index + 1)}"
+  type                = "${var.scw-type}"
   image               = "${data.scaleway_image.scw-image.id}"
   bootscript          = "${data.scaleway_bootscript.scw-bootscript.id}"
   dynamic_ip_required = true
@@ -49,7 +49,7 @@ resource "scaleway_server" "scw-host" {
   provisioner "remote-exec" {
     inline = [
       "apt-get update",
-      "apt-get install -yq apt-transport-https ufw ${join(" ", var.apt_packages)}",
+      "apt-get install -yq apt-transport-https ufw ${join(" ", var.scw-apt_packages)}",
     ]
   }
 }
@@ -72,3 +72,41 @@ output "scw-public_ips" {
   value = ["${scaleway_server.scw-host.*.public_ip}"]
 }
 
+provider "vultr" {
+    api_key = "${var.vultr_api_key}"
+}
+
+data "vultr_region" "region" {
+  filter {
+    name   = "name"
+    values = ["${var.vultr_region}"]
+  }
+}
+
+data "vultr_os" "os" {
+  filter {
+    name   = "name"
+    values = ["${var.vultr_os_version}"]
+  }
+}
+
+data "vultr_plan" "plan" {
+  filter {
+    name   = "price_per_month"
+    values = ["${var.vultr_plan[0]}"]
+  }
+
+  filter {
+    name   = "ram"
+    values = ["${var.vultr_plan[1]}"]
+  }
+}
+
+
+resource "vultr_instance" "intance" {
+  name              = "${var.vultr_instance_name}"
+  region_id         = "${data.vultr_region.region.id}"
+  plan_id           = "${data.vultr_plan.plan.id}"
+  os_id             = "${data.vultr_os.os.id}"
+  hostname          = "${var.vultr_instance_name}"
+}

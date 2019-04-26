@@ -2,6 +2,44 @@ variable "hosts" {
   default = "3"
 }
 
+variable "dgo-hostname_format" {
+  type = "string"
+}
+
+variable "dgo-region" {
+  type = "string"
+}
+
+variable "dgo-type" {
+  type = "string"
+}
+
+variable "dgo-size" {
+  type = "string"
+}
+
+variable "dgo-image" {
+  type = "string"
+}
+
+variable "dgo-apt_packages" {
+  type    = "list"
+  default = []
+}
+
+variable "dgo-ssh-keys" {
+  type    = "list"
+  default = []
+}
+
+
+
+variable "scw-token" {
+  type = "string"
+}
+variable "scw-organization" {
+  type = "string"
+}
 variable "scw-hostname_format" {
   type = "string"
 }
@@ -41,6 +79,30 @@ EOT
 variable "arch" {
   default     = "x86_64"
   description = "Values: arm arm64 x86_64"
+}
+
+variable "vultr_api_key" {}
+
+variable "vultr_instance_name" {
+    default = "vultrnode"
+}
+variable "vultr_region"  {
+  default = "Amsterdam"
+}
+variable "vultr_os_version"  {
+  default = "Ubuntu 18.04 x64"
+}
+variable "vultr_plan"  {
+  type = "list"
+  // [price, ram ]
+  default = ["5.00","1024"]
+}
+
+
+variable "ssh_keys" {
+  type        = "string"
+  default     = "~/.ssh/id_rsa.pub"
+  description = "The path to your public key"
 }
 
 variable "private_key" {

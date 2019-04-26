@@ -12,7 +12,7 @@ resource "scaleway_server" "node" {
   name = "node${count.index}"
   public_ip  = "${element(scaleway_ip.node_ip.*.ip, count.index)}"
   image  = "${data.scaleway_image.ubuntu.id}"
-  type = "START1-S"
+  type = "GP1-S"
   tags = [
     "node"]
 }
