@@ -1,3 +1,5 @@
 terraform.tfstate*
 .terraform*
 .ssh*
+kube_config_cluster.yml
+cluster.yml
