@@ -1,13 +1,26 @@
-resource "digitalocean_droplet" "dgo-host" {
-  name               = "${format(var.dgo-hostname_format, count.index + 1)}"
-  region             = "${var.dgo-region}"
-  image              = "${var.dgo-image}"
-  size               = "${var.dgo-size}"
-  backups            = false
-  private_networking = true
-  ssh_keys           = "${var.dgo-ssh-keys}"
+provider "digitalocean" {
+  token = "${chomp(file("~/.config/digital-ocean/token"))}"  
+}
 
+resource "digitalocean_droplet" "dgo-host" {
   count = "${var.hosts}"
+  
+  #Obtain your ssh_key id number via your account. See Document https://developers.digitalocean.com/documentation/v2/#list-all-keys
+  #ssh_keys           =  '["${var.digitalocean_ssh_key.dokey.id}"]'
+  ssh_keys           = "${var.dgo_ssh_keys}"
+  image              = "${var.dgo_ubuntu}"
+  region             = "${var.do_ams3}"
+  private_networking = true
+  name               = "node${count.index}"
+  size               = "${var.dgo_size}"
+  backups            = false
+  
+  connection {
+    type     = "ssh"
+    private_key = "${file("~/.ssh/id_rsa")}"
+    user     = "root"
+    timeout  = "2m"
+  }
 
   provisioner "remote-exec" {
     inline = [
@@ -26,20 +39,25 @@ output "dgo-public_ips" {
   value = ["${digitalocean_droplet.dgo-host.*.ipv4_address}"]
 }
 
+data "scaleway_image" "ubuntu" {
+  architecture = "${var.arch}"
+  name         = "${var.ubuntu_version}"
+}
 provider "scaleway" {
-  organization = "${var.scw-organization}"
-  token        = "${var.scw-token}"
-  region       = "${var.scw-region}"
+  organization = "${var.scaleway_organization}"
+  token        = "${var.scaleway_token}"
+  region       = "${var.scaleway_region}"
 }
 
 resource "scaleway_server" "scw-host" {
-  name                = "${format(var.scw-hostname_format, count.index + 1)}"
-  type                = "${var.scw-type}"
-  image               = "${data.scaleway_image.scw-image.id}"
+  
+  count = "${var.hosts}"
+  name               = "node${count.index}"
+  type                = "${var.scw_type}"
+  image               = "${data.scaleway_image.ubuntu.id}"
   bootscript          = "${data.scaleway_bootscript.scw-bootscript.id}"
   dynamic_ip_required = true
 
-  count = "${var.hosts}"
 
   # volume = {
   #   size_in_gb = "${var.storage_size}"
@@ -52,11 +70,6 @@ resource "scaleway_server" "scw-host" {
       "apt-get install -yq apt-transport-https ufw ${join(" ", var.scw-apt_packages)}",
     ]
   }
-}
-
-data "scaleway_image" "scw-image" {
-  architecture = "x86_64"
-  name         = "${var.scw-image}"
 }
 
 data "scaleway_bootscript" "scw-bootscript" {
@@ -102,11 +115,69 @@ data "vultr_plan" "plan" {
   }
 }
 
+#creating ssh_key
+resource "vultr_ssh_key" "terraform_infra" {
+  name = "terraform_infra"
+  public_key = "${file("${var.public_key}")}"
+}
+
+
+// Create a pair of Vultr private networks.
+resource "vultr_network" "network" {
+  count       = 1
+  cidr_block  = "${cidrsubnet("172.16.18.0/24", 1, count.index)}"
+  description = "private_network_${count.index}"
+  region_id   = "${data.vultr_region.region.id}"
+}
 
 resource "vultr_instance" "intance" {
-  name              = "${var.vultr_instance_name}"
+  count = "${var.hosts}"  
+  name              = "node${count.index}"
+  hostname          = "node${count.index}"
   region_id         = "${data.vultr_region.region.id}"
   plan_id           = "${data.vultr_plan.plan.id}"
   os_id             = "${data.vultr_os.os.id}"
-  hostname          = "${var.vultr_instance_name}"
+  ssh_key_ids       = ["${vultr_ssh_key.terraform_infra.id}"]
+  network_ids = ["${vultr_network.network.*.id}"]
+  ipv4        = true
+
+  connection {
+    user        = "root"
+    type        = "ssh"
+    private_key = "${file(var.private_key)}"
+    timeout     = "2m"
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/hack/bootstrap.sh"
+    destination = "/root/bootstrap.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = "/bin/bash /root/bootstrap.sh"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "useradd -m -G docker rke",
+      "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | passwd rke",
+      "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | sudo passwd root",
+      "sudo mkdir -p /home/rke/.ssh",
+      "sudo touch /home/rke/.ssh/authorized_keys",
+      "sudo cat /root/.ssh/authorized_keys >> /home/rke/.ssh/authorized_keys",
+      "sudo chown -R rke:rke /home/rke/.ssh",
+      "sudo chmod 700 /home/rke/.ssh",
+      "sudo chmod 600 /home/rke/.ssh/authorized_keys",
+      "sudo usermod -aG sudo rke"
+    ]
+
+  }
+
+}
+
+output "vtr-hostnames" {
+  value = ["${vultr_instance.intance.*.name}"]
+}
+
+output "vtr-public_ips" {
+  value = ["${vultr_instance.intance.*.ipv4_address}"]
 }
