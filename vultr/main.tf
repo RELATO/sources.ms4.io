@@ -32,8 +32,8 @@ resource "vultr_instance" "node1" {
   provisioner "remote-exec" {
     inline = [
         "sudo adduser centos",
-        "echo '1q2w3e4r*' | passwd --stdin centos",
-        "echo '1q2w3e4r*' | sudo passwd --stdin root",
+        "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | passwd centos",
+        "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | sudo passwd root",
         "sudo mkdir -p /home/centos/.ssh",
         "sudo touch /home/centos/.ssh/authorized_keys",
         "sudo cat /root/.ssh/authorized_keys >> /home/centos/.ssh/authorized_keys",
@@ -72,8 +72,8 @@ resource "vultr_instance" "node2" {
   provisioner "remote-exec" {
     inline = [
         "sudo adduser centos",
-        "echo '1q2w3e4r*' | passwd --stdin centos",
-        "echo '1q2w3e4r*' | sudo passwd --stdin root",
+	"echo -e \"1q2w3e4r*\n1q2w3e4r*\" | passwd centos",
+        "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | sudo passwd root",
         "sudo mkdir -p /home/centos/.ssh",
         "sudo touch /home/centos/.ssh/authorized_keys",
         "sudo cat /root/.ssh/authorized_keys >> /home/centos/.ssh/authorized_keys",
@@ -111,8 +111,8 @@ resource "vultr_instance" "node3" {
   provisioner "remote-exec" {
     inline = [
         "sudo adduser centos",
-        "echo '1q2w3e4r*' | passwd --stdin centos",
-        "echo '1q2w3e4r*' | sudo passwd --stdin root",
+        "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | passwd centos",
+        "echo -e \"1q2w3e4r*\n1q2w3e4r*\" | sudo passwd root",
         "sudo mkdir -p /home/centos/.ssh",
         "sudo touch /home/centos/.ssh/authorized_keys",
         "sudo cat /root/.ssh/authorized_keys >> /home/centos/.ssh/authorized_keys",
