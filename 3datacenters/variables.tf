@@ -61,7 +61,7 @@ variable "scw_type" {
   default = "START1-S"
 }
 
-variable "scw-apt_packages" {
+variable "scw_apt_packages" {
   type    = "list"
   default = []
 }
@@ -101,6 +101,10 @@ variable "vultr_plan"  {
   type = "list"
   // [price, ram ]
   default = ["20.00","4096"]
+}
+variable "vultr_apt_packages" {
+  type    = "list"
+  default = []
 }
 
 variable "public_key" {
