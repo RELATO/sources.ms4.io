@@ -2,7 +2,14 @@
 
 https://www.keycloak.org/
 
-## Easy installation
+## Pre-requisites
+> Install docker and docker-compose as described on link below
+
+```
+https://github.com/RELATO/sources.ms4.io/blob/master/Docker.md
+```
+
+## Easy installation ( take less than five minutes )
 ```
 git clone https://github.com/RELATO/docker-keycloak-letsencrypt.git
 cd 
@@ -14,13 +21,13 @@ docker-compose up -d
 
 
 ## Guide
-Choose a domain name to host your new keycloak server
-Config the DNS service that is hosting the domain above accordinly 
-Copy sample.env to .env and adjust the environment variables.
-Edit .env file 
-Replace example.com to the domain you chose
-Replace Passw0rd! to one of your choice
-Replace luke.skywalker@example.com to your e-mail
+- Choose a domain name to host your new keycloak server
+- Config the DNS service that is hosting the domain above accordinly 
+- Copy sample.env to .env and adjust the environment variables.
+- Edit .env file 
+- Replace example.com to the domain you chose
+- Replace Passw0rd! to one of your choice
+- Replace luke.skywalker@example.com to your e-mail
 
 Then 
 ```
@@ -44,3 +51,5 @@ PROXY_ADDRESS_FORWARDING=true
 LETSENCRYPT_HOST=example.com
 LETSENCRYPT_EMAIL=luke.skywalker@example.com
 ```
+
+# Enjoy
