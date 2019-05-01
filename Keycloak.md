@@ -54,7 +54,7 @@ LETSENCRYPT_HOST=example.com
 LETSENCRYPT_EMAIL=luke.skywalker@example.com
 ```
 
-> The outpub of the keycloak test server on
+> The output of the keycloak DEMO/TEST server on
 https://kck.ms4.io/auth/realms/dev/.well-known/openid-configuration
 
 ```
