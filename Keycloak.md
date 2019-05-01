@@ -5,9 +5,7 @@ https://www.keycloak.org/
 ## Pre-requisites
 > Install docker and docker-compose as described on link below
 
-```
 [docker](https://github.com/RELATO/sources.ms4.io/blob/master/Docker.md)
-```
 
 ## Easy installation ( take less than five minutes )
 ```
