@@ -1,6 +1,6 @@
 # kubernetes, microservices and things like that
 
-> Motivation: help devops to achieve daily basis results easier
+> Motivation: helping devops to achieve daily basis results easier
 
 ## Cheapest datacenters we have found
 
