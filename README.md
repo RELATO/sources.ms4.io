@@ -15,7 +15,7 @@
 ## Not so cheap, but interesting
 
 - [Exoscale](https://www.exoscale.com/)
-- [Stackpath])(https://www.stackpath.com) * It has a South America region
+- [Stackpath](https://www.stackpath.com) * It has a South America region
 
 
 ## Make things easyer (tested in ubuntu)
