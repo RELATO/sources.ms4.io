@@ -1,4 +1,4 @@
-# kubernetes, microservices and things like that
+# kubernetes, microservices, cloud and things like that
 
 > Motivation: helping devops to achieve daily basis results easier
 
@@ -11,6 +11,12 @@
 - [digitalocean](https://cloud.digitalocean.com/login)
 - [upcloud](https://hub.upcloud.com)
 - [ssdnodes](https://www.ssdnodes.com/manage/clientarea.php) * does not have block storage, load balancer or even hourly based prices
+
+## Not so cheap, but interesting
+
+- [Exoscale](https://www.exoscale.com/)
+- [Stackpath])(https://www.stackpath.com) * It has a South America region
+
 
 ## Make things easyer (tested in ubuntu)
 
