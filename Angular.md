@@ -99,7 +99,7 @@ cd my-dream-app
 ng serve
 ``` 
 > If everything went OK you should see
-````
+```
 ** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
 
 Date: 2019-04-21T13:01:11.299Z
@@ -111,9 +111,12 @@ chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 236 kB [initial] [r
 chunk {runtime} runtime.js, runtime.js.map (runtime) 6.08 kB [entry] [rendered]
 chunk {styles} styles.js, styles.js.map (styles) 16.3 kB [initial] [rendered]
 chunk {vendor} vendor.js, vendor.js.map (vendor) 3.52 MB [initial] [rendered]
-ℹ ｢wdm｣: Compiled successfully.
+ ｢wdm｣: Compiled successfully.
 ```
 > Now open your browser on 
 
 http://localhost:4200/
 
+## Some interesting tutorials
+
+https://denys.dev/2018-03-02/your-angular-apps-as-docker-containers/
