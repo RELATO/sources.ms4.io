@@ -11,6 +11,8 @@
 - [digitalocean](https://cloud.digitalocean.com/login)
 - [upcloud](https://hub.upcloud.com)
 - [ssdnodes](https://www.ssdnodes.com/manage/clientarea.php) * does not have block storage, load balancer or even hourly based prices
+- [lunanode](https://www.lunanode.com/pricing)
+- [netcup](https://www.netcup.eu/vserver/vps.php)
 
 ## Not so cheap, but interesting
 
