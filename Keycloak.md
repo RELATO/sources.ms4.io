@@ -242,5 +242,13 @@ home@Macintosh  ~/projetos/clusters/sources.ms4.io> curl -H "Authorization: bear
   "ROLE_manage-account-links"
 ]
 ```
+## Interesting github projects
+
+https://github.com/Schartey/gqlgen-auth-starter
+
+https://github.com/sslaws/vue-auth
+
+https://github.com/mauriciovigolo/keycloak-angular
+
 
 # Enjoy

@@ -1,5 +1,11 @@
 # Code generators
 
+## Templates
+[Gobuffalo-Plush](https://github.com/gobuffalo/plush)
+[Infuse](https://github.com/jucardi/infuse)
+[Go-Template](https://github.com/phcollignon/Go-Template)
+
+## Others
 [Felix-go-gen](https://github.com/dejavuzhou/felix)
 [Go-crud-template](https://github.com/kgoralski/go-crud-template)
 [Go-scaffold-gin-gorm](https://github.com/catchplay/scaffold)
