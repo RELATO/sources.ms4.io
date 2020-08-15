@@ -28,7 +28,7 @@ go version
 > You should see
 
 ``` 
-go version go1.11.9 linux/amd64
+go version go1.14.7 linux/amd64
 ``` 
 
 ## Some interesting tutorials
