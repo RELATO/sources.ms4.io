@@ -4,20 +4,22 @@
 
 ```
 cd ~
-wget https://dl.google.com/go/go1.11.9.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.14.7.linux-amd64.tar.gz
 cd /usr/local
-tar xfvz ~/go1.11.9.linux-amd64.tar.gz
+sudo tar xfvz ~/go1.14.7.linux-amd64.tar.gz
 ```
 
 ## Add the following line to your ~/.profile file
 ```
-export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 ```
 
 ## Test your go installation
-- Logout
-- Login again
-- Issue the command below
+- terminal/shell logout
+- terminal/shell login again
+- issue the command below
 
 ```
 go version
