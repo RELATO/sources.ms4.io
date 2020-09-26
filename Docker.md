@@ -2,9 +2,9 @@
 
 ## docker easy installation
 
-> Below is the command to install 18.06 version. You can change to another version if you want
+> Below is the command to install 19.03 version. You can change to another version if you want
 ```
-curl https://releases.rancher.com/install-docker/18.06.sh | sh
+curl https://releases.rancher.com/install-docker/19.03.sh | sh
 
 ```
 
